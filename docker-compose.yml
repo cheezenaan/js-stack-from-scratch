@@ -1,0 +1,12 @@
+version: '2'
+services:
+  main:
+    container_name: base
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/myapp
+    command: /bin/sh

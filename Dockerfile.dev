@@ -1,0 +1,8 @@
+FROM alpine:3.5
+RUN apk --no-cache add curl nodejs
+
+# Install yarn
+RUN curl -o- -sL https://yarnpkg.com/install.sh | sh
+ENV PATH /root/.yarn/bin/:$PATH
+
+WORKDIR /myapp
