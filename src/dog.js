@@ -5,4 +5,4 @@ export default class Dog {
   bark() {
     return `Wah wah, I am ${this.name}`
   }
-};
+}
