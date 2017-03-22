@@ -1,8 +1,14 @@
-FROM alpine:3.5
-RUN apk --no-cache add curl nodejs
+FROM ubuntu:16.04
 
-# Install yarn
-RUN curl -o- -sL https://yarnpkg.com/install.sh | sh
+RUN set -x \
+&&  apt-get -y update \
+&&  apt-get -y install curl libelf1 \
+&&  apt-get clean
+
+# Install Node.js, Yarn
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - \
+&&  apt-get install -y nodejs \
+&&  curl -o- -sL https://yarnpkg.com/install.sh | bash -
 ENV PATH /root/.yarn/bin/:$PATH
 
 WORKDIR /myapp

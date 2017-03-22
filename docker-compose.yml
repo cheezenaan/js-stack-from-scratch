@@ -5,7 +5,6 @@ services:
     volumes:
       - node_modules:/myapp/node_modules
   main:
-    container_name: base
     build:
       context: .
       dockerfile: Dockerfile.dev
