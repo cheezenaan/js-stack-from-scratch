@@ -11,9 +11,11 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - .:/myapp
+      - dsync:/myapp
     command: yarn start
 
 volumes:
   node_modules:
     driver: local
+  dsync:
+    external: true

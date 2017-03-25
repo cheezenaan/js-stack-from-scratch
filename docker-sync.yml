@@ -1,0 +1,14 @@
+version: 2
+syncs:
+  dsync:
+    src: './'
+    dest: '/myapp'
+    # optional, a list of excludes for rsync - see rsync docs for details
+    sync_excludes: ['.*/node_modules/', 'lib/', '.gitignore', '.git/', '*.coffee', '*.scss', '*.sass']
+    sync_excludes_type: 'Path'
+    sync_strategy: 'unison'
+    sync_prefer: 'default'
+
+    watch_excludes: ['.*/.git', '.*/node_modules', '.*/sass-cache', '.*/.sass-cache', '.*/.sass-cache', '.coffee', '.scss', '.sass', '.gitignore']
+    watch_args: '-v'
+    watch_strategy: 'fswatch'
