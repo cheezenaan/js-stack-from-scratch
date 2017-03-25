@@ -1,0 +1,9 @@
+version: 2
+syncs:
+  dsync:
+    notify_terminal: true
+    src: ./
+    dest: /myapp
+    sync_excludes: ["yarn.lock", ".git", "*.log", "node_modules", ".vscode"]
+    sync_excludes_type: "Name"
+    sync_strategy: "unison"

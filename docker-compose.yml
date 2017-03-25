@@ -11,9 +11,11 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - .:/myapp
+      - dsync:/myapp
     command: /bin/sh
 
 volumes:
   node_modules:
     driver: local
+  dsync:
+    external: true
