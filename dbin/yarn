@@ -4,4 +4,8 @@ set -eux
 readonly APP_CONTAINER="main"
 readonly COMMAND="`basename $0`"
 
-docker-compose run --rm $APP_CONTAINER $COMMAND $@
+if docker-compose ps | grep $APP_CONTAINER | grep -q Up; then
+  docker-compose exec $APP_CONTAINER $COMMAND $@
+else
+  docker-compose run --rm $APP_CONTAINER $COMMAND $@
+fi
